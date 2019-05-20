@@ -5,11 +5,6 @@ export const ITEM_SCALE = 0.6;
 export const SHADOW_OFFSET = 5;
 export const SHADOW_ALPHA = 0.5;
 
-export const HAND_OFFSET = {
-    x: 8,
-    y: ITEM_SIZE / 2,
-};
-
 export const BOARD_ROWS = 7;
 export const BOARD_COLUMNS = 7;
 export const BOARD_CELL_SIZE = ITEM_SIZE * 1.08;
