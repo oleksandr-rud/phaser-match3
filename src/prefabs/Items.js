@@ -119,8 +119,8 @@ export default class Items {
     this.hand.anchor.setTo(0.5);
     this.hand.visible = false;
 
-    for (let i = 0; i < BOARD_ROWS; i++) {
-      for (let j = 0; j < BOARD_COLUMNS; j++) {
+    for (let i = 0; i < BOARD_ROWS -1 ; i++) {
+      for (let j = 0; j < BOARD_COLUMNS - 1; j++) {
         const sourcePos = {row: i, column: j};
         let targetPos = {row: i + 1, column: j};
 
@@ -131,11 +131,11 @@ export default class Items {
           const pos = this.board.getPos(targetPos.row, targetPos.column);
 
           this.hand.visible = true;
-          this.hand.x = pos.x + 8;
-          this.hand.y = pos.y + 38;
-          
+          this.hand.x = pos.x + HAND_OFFSET.x;
+          this.hand.y = pos.y + HAND_OFFSET.y;
+
           this.game.world.bringToTop(this.hand);
-          
+
           this.handTween = this.game.add.tween(this.hand).to({
             y: this.hand.y + BOARD_CELL_SIZE,
           }, SUGGESTION_SPEED, Phaser.Easing.Linear.None, true, 0, -1, true);
@@ -155,13 +155,13 @@ export default class Items {
 
         if (this.matches.checkAt(targetPos.row, targetPos.column)) {
           const pos = this.board.getPos(targetPos.row, targetPos.column);
-          
+
           this.hand.visible = true;
-          this.hand.x = pos.x + 8;
-          this.hand.y = pos.y + 38;
-          
+          this.hand.x = pos.x + HAND_OFFSET.x;
+          this.hand.y = pos.y + HAND_OFFSET.y;
+
           this.game.world.bringToTop(this.hand);
-          
+
           this.handTween = this.game.add.tween(this.hand).to({
             x: this.hand.x + BOARD_CELL_SIZE,
           }, SUGGESTION_SPEED, Phaser.Easing.Linear.None, true, 0, -1, true);
