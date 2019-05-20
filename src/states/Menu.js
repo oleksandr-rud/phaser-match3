@@ -15,19 +15,21 @@ export default class Menu extends Phaser.State {
     this.game.backgroundMusic.play();
 
     const backgroundImage = this.add.sprite(0, 0, 'bg-image');
-    backgroundImage.scale.setTo(0.8);
 
-    const logo = this.add.sprite(240, 240, 'donuts-logo');
+    const logo = this.add.sprite(0, 0, 'donuts-logo');
     logo.anchor.setTo(0.5);
     logo.scale.setTo(0.7);
+    logo.alignIn(this.world.bounds, Phaser.CENTER, 0, -150);
 
-    const playButton = this.add.button(240, 480, 'btn-play', this.startGame, this);
+    const playButton = this.add.button(0, 0, 'btn-play', this.startGame, this);
     playButton.anchor.setTo(0.5);
     playButton.scale.setTo(0.7);
+    playButton.alignIn(this.world.bounds, Phaser.CENTER, 0, 150);
 
-    const soundButton = this.add.button(435, 45, 'btn-sound', this.toggleSound, this);
+    const soundButton = this.add.button(0, 0, 'btn-sound', this.toggleSound, this);
     soundButton.anchor.setTo(0.5);
     soundButton.scale.setTo(0.5);
+    soundButton.alignIn(this.world.bounds, Phaser.TOP_RIGHT, -20, -30);
   }
 
   startGame() {

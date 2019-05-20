@@ -35,9 +35,9 @@ export default class Play extends Phaser.State {
     this.scoreText.y -= 15;
     
     // create timer
-    this.timeText = this.add.text(0, 0, Math.floor(this.timeLeft / 1000) + 's', {font: '40px Fredoka One', align: 'center'});
-    this.timeText.alignIn(this.world.bounds, Phaser.TOP_RIGHT, 0, -80);
+    this.timeText = this.add.text(0, 0, Math.floor(this.timeLeft / 1000) + 's', {font: '45px Fredoka One', align: 'center'});
     this.timeText.anchor.setTo(0.5);
+    this.timeText.alignIn(this.world.bounds, Phaser.TOP_LEFT, -30, -50);
     
     // create a title that shows after the game is over
     this.overTitle = this.add.sprite(this.world.centerX, this.world.centerY * 0.5, 'timeup');
