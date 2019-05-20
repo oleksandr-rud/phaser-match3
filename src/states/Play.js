@@ -38,6 +38,11 @@ export default class Play extends Phaser.State {
     this.timeText = this.add.text(0, 0, Math.floor(this.timeLeft / 1000) + 's', {font: '45px Fredoka One', align: 'center'});
     this.timeText.anchor.setTo(0.5);
     this.timeText.alignIn(this.world.bounds, Phaser.TOP_LEFT, -30, -50);
+
+    const soundButton = this.add.button(0, 0, 'btn-sound', this.toggleSound, this);
+    soundButton.anchor.setTo(0.5);
+    soundButton.scale.setTo(0.5);
+    soundButton.alignIn(this.world.bounds, Phaser.TOP_RIGHT, -20, -30);
     
     // create a title that shows after the game is over
     this.overTitle = this.add.sprite(this.world.centerX, this.world.centerY * 0.5, 'timeup');
@@ -214,5 +219,15 @@ export default class Play extends Phaser.State {
   exit() {
     this.game.backgroundMusic.stop();
     this.game.state.start('Menu');
+  }
+
+  toggleSound() {
+    if (this.game.sound.mute === true) {
+      // this.backgroundMusic.play();
+      this.game.sound.mute = false;
+    } else {
+      // this.backgroundMusic.pause();
+      this.game.sound.mute = true;
+    }
   }
 }
